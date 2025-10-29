@@ -1,0 +1,290 @@
+/*
+ * Footer Styles
+ * 3-column layout with site map, social media, and contact info
+ */
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: var(--spacing-lg) 0;
+  margin-top: var(--spacing-xl);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid rgba(74, 139, 92, 0.3);
+}
+
+/* Footer Columns */
+.footer-column {
+  text-align: center;
+}
+
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-sm);
+  color: var(--basil-green);
+  letter-spacing: 1px;
+}
+
+/* Order Now Section */
+.footer-phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin: var(--spacing-sm) 0;
+}
+
+.footer-phone-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.payment-methods {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.payment-methods p {
+  width: 100%;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray-medium);
+}
+
+.payment-icon {
+  height: 32px;
+  width: auto;
+}
+
+.payment-icon[alt="Visa"] {
+  height: 24px;
+}
+
+/* Social Media Section */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: var(--spacing-sm);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background-color: var(--basil-green);
+  transform: translateY(-3px);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--white);
+}
+
+/* Site Map Section */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-link {
+  color: var(--white);
+  font-size: 1rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--basil-green);
+}
+
+.footer-link.active,
+.footer-link.highlight {
+  color: var(--tomato-red);
+  font-weight: 700;
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.footer-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+}
+
+.halal-badge {
+  height: 50px;
+  width: auto;
+}
+
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-legal-link {
+  font-size: 0.875rem;
+  color: var(--gray-medium);
+  transition: color var(--transition-fast);
+}
+
+.footer-legal-link:hover {
+  color: var(--basil-green);
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  color: var(--gray-medium);
+}
+
+/* Contact Us Button */
+.contact-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #2C7A7B;
+  color: var(--white);
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-medium);
+  z-index: var(--z-dropdown);
+}
+
+.contact-button:hover {
+  background-color: #234E52;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ==========================================
+   RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet: 640px+ */
+@media (min-width: 640px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-column {
+    text-align: left;
+  }
+
+  .footer-phone {
+    justify-content: flex-start;
+  }
+
+  .payment-methods {
+    justify-content: flex-start;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-logo-section {
+    justify-content: flex-start;
+    flex: 0 0 auto;
+  }
+
+  .footer-legal {
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Desktop: 900px+ */
+@media (min-width: 900px) {
+  .footer-main {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+
+  .footer-column {
+    min-width: 0; /* Prevent grid blowout */
+  }
+
+  .footer-phone {
+    font-size: 2.5rem;
+  }
+
+  .social-link {
+    width: 56px;
+    height: 56px;
+  }
+
+  .social-icon {
+    width: 28px;
+    height: 28px;
+  }
+}

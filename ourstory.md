@@ -1,0 +1,9 @@
+# Our story
+
+Sarpino’s founder Gerry Koutougos established his first full service restaurant in Victoria, BC Canada. After years of providing authentic Italian and Mediterranean dishes through a number of successful full service restaurants, Gerry saw the opportunity to provide consumers around the world with these fresh authentic Italian dishes through take- out and delivery restaurants.
+Sarpino’s Singapore opened in 2001 and is now the 3rd largest pizza restaurant group in Singapore and strives to be the best, not the biggest. Worldwide HQ has recently moved to Singapore, so expect nothing but the best as we make improvements to the system.
+
+Sarpino’s offers the highest-quality gourmet pizzas, succulent chicken wings, a variety of salads, cheese bread, garlic bread and beverages. Sarpino’s pizzas are made from authentic, fine ingredients and our dough is hand kneaded freshly each day in Italian tradition in every location to ensure that you have the best pizza experience you have ever had.
+
+It is through our superior quality fresh ingredients, authentic recipes and handmade fresh dough that we guarantee our customers variety and a true traditional Italian experience while still providing fantastic value. This is our promise to you and why Sarpino’s Pizzeria has grown to over 250 locations worldwide.
+Whether you are working late at the office, or busy driving the kids around to their sports practices, you should always have a choice of a variety of fresh, healthy and authentic dishes delivered right to your home or office. Sarpino’s was created in response to the consumers’ demand for greater freshness, quality, authenticity and most of all, a variety in their fast food alternatives. We offer you an alternative to the typical, heavily processed fast food. It is through our fresh ingredients, daily in-store hand made dough, freshly made pizza sauce, all with authentic recipes that we guarantee variety from our home to yours.

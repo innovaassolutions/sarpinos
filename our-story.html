@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Sarpino's Pizza story - from Victoria, BC to Singapore. Authentic Italian pizza made with honest ingredients since 2001.">
+  <title>Our Story | Sarpino's Pizza Singapore</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css?v=2">
+  <link rel="stylesheet" href="css/navigation.css?v=2">
+  <link rel="stylesheet" href="css/footer.css?v=2">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logos/sarpinoslogo.png">
+
+  <style>
+    /* Our Story Page Specific Styles */
+    .story-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                  url('images/PizzariaheroII.jpg') center/cover no-repeat;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .story-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .story-title {
+      font-size: 3rem;
+      color: var(--tomato-red);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      text-transform: uppercase;
+    }
+
+    .story-text {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--gray-dark);
+      margin-bottom: var(--spacing-md);
+      text-align: justify;
+    }
+
+    .story-text:first-of-type::first-letter {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--basil-green);
+      float: left;
+      line-height: 1;
+      margin-right: 0.5rem;
+      margin-top: 0.1rem;
+    }
+
+    @media (min-width: 640px) {
+      .story-hero {
+        min-height: 500px;
+      }
+
+      .story-title {
+        font-size: 4rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .story-hero {
+        min-height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Component -->
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="story-hero">
+    </section>
+
+    <!-- Story Content -->
+    <section class="story-content">
+      <h1 class="story-title">Our Story</h1>
+
+      <p class="story-text">
+        Sarpino's founder Gerry Koutougos established his first full service restaurant in Victoria, BC Canada. After years of providing authentic Italian and Mediterranean dishes through a number of successful full service restaurants, Gerry saw the opportunity to provide consumers around the world with these fresh authentic Italian dishes through take-out and delivery restaurants.
+      </p>
+
+      <p class="story-text">
+        Sarpino's Singapore opened in 2001 and is now the 3rd largest pizza restaurant group in Singapore and strives to be the best, not the biggest. Worldwide HQ has recently moved to Singapore, so expect nothing but the best as we make improvements to the system.
+      </p>
+
+      <p class="story-text">
+        Sarpino's offers the highest-quality gourmet pizzas, succulent chicken wings, a variety of salads, cheese bread, garlic bread and beverages. Sarpino's pizzas are made from authentic, fine ingredients and our dough is hand kneaded freshly each day in Italian tradition in every location to ensure that you have the best pizza experience you have ever had.
+      </p>
+
+      <p class="story-text">
+        It is through our superior quality fresh ingredients, authentic recipes and handmade fresh dough that we guarantee our customers variety and a true traditional Italian experience while still providing fantastic value. This is our promise to you and why Sarpino's Pizzeria has grown to over 250 locations worldwide.
+      </p>
+
+      <p class="story-text">
+        Whether you are working late at the office, or busy driving the kids around to their sports practices, you should always have a choice of a variety of fresh, healthy and authentic dishes delivered right to your home or office. Sarpino's was created in response to the consumers' demand for greater freshness, quality, authenticity and most of all, a variety in their fast food alternatives. We offer you an alternative to the typical, heavily processed fast food. It is through our fresh ingredients, daily in-store hand made dough, freshly made pizza sauce, all with authentic recipes that we guarantee variety from our home to yours.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- Footer Component -->
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/load-components.js"></script>
+  <script src="js/navigation.js"></script>
+
+</body>
+</html>

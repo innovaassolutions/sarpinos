@@ -1,0 +1,260 @@
+/*
+ * Navigation Styles
+ * Desktop: Horizontal transparent nav with hover effects
+ * Mobile: Hamburger menu with slide-in panel
+ */
+
+/* ==========================================
+   HEADER & NAVIGATION
+   ========================================== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-sticky);
+  transition: all var(--transition-medium);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem var(--spacing-md);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo Section */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-image {
+  height: 50px;
+  width: auto;
+}
+
+.phone-number {
+  display: none;
+  font-size: 0.875rem;
+  color: var(--pesto-green);
+  font-weight: 600;
+}
+
+.phone-icon {
+  margin-right: 0.25rem;
+}
+
+/* Desktop Navigation */
+.nav-desktop {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--pesto-green);
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--tomato-red);
+}
+
+.nav-link.active {
+  color: var(--tomato-red);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--tomato-red);
+  transition: width var(--transition-medium);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Order Now Button in Header */
+.header-cta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-order-now {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: var(--z-overlay);
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--pesto-green);
+  transition: all var(--transition-medium);
+  border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation Menu */
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--pesto-green);
+  padding: 6rem 2rem 2rem;
+  transition: right var(--transition-slow);
+  z-index: var(--z-modal);
+  overflow-y: auto;
+}
+
+.nav-mobile.active {
+  right: 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.nav-mobile .nav-list {
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.nav-mobile .nav-link {
+  width: 100%;
+  padding: 1rem 0;
+  color: var(--white);
+  font-size: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-mobile .nav-link:hover,
+.nav-mobile .nav-link.active {
+  color: var(--salad-green);
+}
+
+.nav-mobile .nav-link::after {
+  display: none;
+}
+
+/* Mobile Overlay */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-medium);
+  z-index: var(--z-dropdown);
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ==========================================
+   RESPONSIVE STYLES
+   ========================================== */
+
+/* Tablet: 640px+ */
+@media (min-width: 640px) {
+  .logo-image {
+    height: 60px;
+  }
+
+  .phone-number {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-mobile {
+    width: 350px;
+  }
+
+  .nav-mobile .nav-link {
+    font-size: 1.5rem;
+  }
+}
+
+/* Desktop: 1024px+ */
+@media (min-width: 1024px) {
+  .header-container {
+    padding: 1.5rem var(--spacing-md);
+  }
+
+  .logo-image {
+    height: 70px;
+  }
+
+  .phone-number {
+    font-size: 1rem;
+  }
+
+  /* Show desktop nav, hide mobile toggle */
+  .nav-desktop {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find Sarpino's Pizza locations in Singapore. Delivery and takeaway available across East, North East, and Central Areas.">
+  <title>Locations | Sarpino's Pizza Singapore</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css?v=2">
+  <link rel="stylesheet" href="css/navigation.css?v=2">
+  <link rel="stylesheet" href="css/footer.css?v=2">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logos/sarpinoslogo.png">
+
+  <style>
+    /* Locations Page Specific Styles */
+    .locations-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                  url('images/makingpizza.png') center/cover no-repeat;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .locations-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .locations-title {
+      font-size: 3rem;
+      color: var(--tomato-red);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      text-transform: uppercase;
+    }
+
+    /* Accordion Styles */
+    .accordion {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .accordion-item {
+      background-color: var(--gray-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition-medium);
+    }
+
+    .accordion-item:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      cursor: pointer;
+      background-color: var(--white);
+      transition: background-color var(--transition-fast);
+    }
+
+    .accordion-header:hover {
+      background-color: var(--gray-light);
+    }
+
+    .accordion-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--tomato-red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .accordion-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      background-color: var(--basil-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: all var(--transition-medium);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+      background-color: var(--tomato-red);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 2000px;
+    }
+
+    .accordion-body {
+      padding: 0 1.5rem 1.5rem;
+      background-color: var(--white);
+    }
+
+    .location-item {
+      padding: var(--spacing-sm) 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+
+    .location-item:last-child {
+      border-bottom: none;
+    }
+
+    .location-name {
+      font-weight: 700;
+      color: var(--pesto-green);
+      margin-bottom: 0.25rem;
+    }
+
+    .location-address {
+      color: var(--gray-dark);
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .location-phone {
+      color: var(--basil-green);
+      font-weight: 600;
+    }
+
+    @media (min-width: 640px) {
+      .locations-hero {
+        min-height: 500px;
+      }
+
+      .locations-title {
+        font-size: 4rem;
+      }
+
+      .accordion-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .locations-hero {
+        min-height: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-container"></div>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="locations-hero">
+    </section>
+
+    <!-- Locations Content -->
+    <section class="locations-content">
+      <h1 class="locations-title">Locations</h1>
+
+      <!-- Accordion -->
+      <div class="accordion">
+
+        <!-- East, North East Region -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h2 class="accordion-title">East, North East</h2>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="location-item">
+                <div class="location-name">Saripino's Pizza Tampines</div>
+                <div class="location-address">Safra Tampines Clubhouse 1A Tampines Street 92 Singapore 528882</div>
+                <div class="operating-hours">Open 10am - 10pm daily</div>
+              </div>
+              <div class="location-item">
+                <div class="location-name">Saripino's Pizza Eunos</div>
+                <div class="location-address">1A Eunos Crescent #01-2477 Singapore 401001</div>
+                <div class="operating-hours">Open 10am - 10pm daily</div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Central Areas Region -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <h2 class="accordion-title">Central Areas</h2>
+            <div class="accordion-icon">+</div>
+          </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="location-item">
+                <div class="location-name">Shell @ DUNEARN</div>
+                <div class="location-address">314 Dunearn Rd, Singapore 299551</div>
+                <div class="operating-hours">Open 10am - 10pm daily</div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/load-components.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/accordion.js"></script>
+
+</body>
+</html>
