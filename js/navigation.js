@@ -3,43 +3,59 @@
  * Handles mobile menu toggle and active page highlighting
  */
 
-// Initialize navigation - can be called when nav is dynamically loaded
-function initNavigation() {
-  // Mobile menu elements
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navMobile = document.querySelector('.nav-mobile');
-  const navOverlay = document.querySelector('.nav-overlay');
-  const body = document.body;
+(function() {
+  'use strict';
 
-  // Toggle mobile menu
-  function toggleMenu() {
-    menuToggle.classList.toggle('active');
-    navMobile.classList.toggle('active');
-    navOverlay.classList.toggle('active');
-    body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+  // Wait for DOM to be fully loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 
-  // Menu toggle button click
-  if (menuToggle) {
+  function init() {
+    // Mobile menu elements
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMobile = document.querySelector('.nav-mobile');
+    const navOverlay = document.querySelector('.nav-overlay');
+    const body = document.body;
+
+    if (!menuToggle || !navMobile || !navOverlay) {
+      console.error('Navigation elements not found');
+      return;
+    }
+
+    // Toggle mobile menu
+    function toggleMenu() {
+      menuToggle.classList.toggle('active');
+      navMobile.classList.toggle('active');
+      navOverlay.classList.toggle('active');
+      body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+    }
+
+    // Menu toggle button click
     menuToggle.addEventListener('click', toggleMenu);
-  }
 
-  // Close menu when overlay is clicked
-  if (navOverlay) {
+    // Close menu when overlay is clicked
     navOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu when a nav link is clicked
+    const navLinks = document.querySelectorAll('.nav-mobile .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (navMobile.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // Highlight active page in navigation
+    setActivePage();
+
+    // Header scroll effect
+    addScrollEffect();
   }
 
-  // Close menu when a nav link is clicked
-  const navLinks = document.querySelectorAll('.nav-mobile .nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function() {
-      if (navMobile.classList.contains('active')) {
-        toggleMenu();
-      }
-    });
-  });
-
-  // Highlight active page in navigation
   function setActivePage() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const allNavLinks = document.querySelectorAll('.nav-link');
@@ -58,31 +74,18 @@ function initNavigation() {
     });
   }
 
-  // Set active page on load
-  setActivePage();
+  function addScrollEffect() {
+    const header = document.querySelector('.header');
+    if (!header) return;
 
-  // Header scroll effect (optional - adds shadow on scroll)
-  const header = document.querySelector('.header');
-  let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+      const currentScroll = window.scrollY;
 
-  window.addEventListener('scroll', function() {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 50) {
-      header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-    } else {
-      header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.05)';
-    }
-
-    lastScroll = currentScroll;
-  });
-}
-
-// Make initNavigation globally available
-window.initNavigation = initNavigation;
-
-// Auto-initialize on DOM ready
-document.addEventListener('DOMContentLoaded', function() {
-  // Small delay to ensure components are loaded first
-  setTimeout(initNavigation, 100);
-});
+      if (currentScroll > 50) {
+        header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.05)';
+      }
+    });
+  }
+})();
