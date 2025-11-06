@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sarpino's Pizza Singapore - Authentic Italian pizza made with fresh ingredients and handmade dough daily. Order now for delivery or takeaway!">
-  <meta name="keywords" content="pizza, Italian pizza, delivery, Singapore, Sarpino's, handmade pizza, authentic Italian">
-  <title>Sarpino's Pizza Singapore | Authentic Italian Pizza Delivery</title>
+  <meta name="description" content="Order authentic Italian pizza from Sarpino's Singapore. Fresh ingredients, handmade dough daily. Delivery and takeaway available.">
+  <title>Order Online | Sarpino's Pizza Singapore</title>
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/main.css?v=2">
@@ -14,6 +13,33 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logos/sarpinoslogo.png">
+
+  <style>
+    /* Order Page Specific Styles */
+    .order-container {
+      margin-top: 100px;
+      min-height: calc(100vh - 100px);
+      padding: var(--spacing-md);
+    }
+
+    #Mobi2Go-Container {
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 800px;
+    }
+
+    /* Loading state */
+    .loading-message {
+      text-align: center;
+      padding: var(--spacing-xl);
+      color: var(--gray-dark);
+    }
+
+    .loading-message h2 {
+      color: var(--tomato-red);
+      margin-bottom: var(--spacing-md);
+    }
+  </style>
 </head>
 <body>
 
@@ -65,73 +91,14 @@
   <div class="nav-overlay"></div>
 
   <!-- Main Content -->
-  <main style="margin-top: 100px;">
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-container">
-        <div class="hero-content">
-          <h1 class="hero-title">Fresh. Authentic. Delicious.</h1>
-          <p class="hero-subtitle">Real Italian pizza made with honest ingredients</p>
-          <a href="order.html" class="btn btn-primary btn-large">Order Now</a>
-        </div>
+  <main class="order-container">
+    <!-- Mobi2Go Container -->
+    <div id="Mobi2Go-Container">
+      <div class="loading-message">
+        <h2>Loading Menu...</h2>
+        <p>Please wait while we load our delicious menu for you.</p>
       </div>
-    </section>
-
-    <!-- Promotional Grid -->
-    <section class="promo-section">
-      <div class="container">
-        <h2 class="section-title text-center">Special Offers</h2>
-
-        <div class="promo-grid">
-          <!-- Promo 1: 50% Off -->
-          <a href="order.html" class="promo-card promo-large">
-            <img src="assets/promos/50off.png" alt="50% OFF Pizza Built on Flavour" class="promo-image">
-          </a>
-
-          <!-- Promo 2: Me-Time Deal -->
-          <a href="order.html" class="promo-card promo-medium">
-            <img src="assets/promos/MeTime.png" alt="Me-Time Pizza Deal from $5.50" class="promo-image">
-          </a>
-
-          <!-- Promo 3: Real Pizza -->
-          <a href="order.html" class="promo-card promo-medium">
-            <img src="assets/promos/RealPizza.png" alt="Real Pizza Real Flavour No Gimmicks" class="promo-image">
-          </a>
-
-          <!-- Promo 4: Whole Lot of Heart -->
-          <a href="order.html" class="promo-card promo-large">
-            <img src="assets/promos/WholeLotofHeart.png" alt="Pizza Made with a Whole Lot of Heart" class="promo-image">
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-section">
-      <div class="container">
-        <h2 class="section-title text-center text-tomato-red">Why Sarpino's?</h2>
-        <div class="features-grid">
-          <div class="feature-card">
-            <h3 class="text-basil-green">Fresh Dough Daily</h3>
-            <p>Hand-kneaded fresh every day in Italian tradition</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="text-basil-green">Authentic Recipes</h3>
-            <p>Traditional Italian recipes passed down through generations</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="text-basil-green">Premium Ingredients</h3>
-            <p>Only the finest, authentic Italian ingredients</p>
-          </div>
-          <div class="feature-card">
-            <h3 class="text-basil-green">Halal Certified</h3>
-            <p>All our products are halal certified</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <!-- Footer -->
@@ -152,7 +119,6 @@
             <p>We accept:</p>
             <img src="assets/icons/visa.png" alt="Visa" class="payment-icon">
             <img src="assets/icons/master.png" alt="MasterCard" class="payment-icon">
-            <!-- <img src="assets/icons/stripe.png" alt="Stripe" class="payment-icon"> -->
             <img src="assets/icons/cashondelivery.svg" alt="Cash on Delivery" class="payment-icon">
           </div>
         </div>
@@ -180,7 +146,6 @@
             <a href="index.html" class="footer-link">Home</a>
             <a href="our-story.html" class="footer-link">About Us</a>
             <a href="locations.html" class="footer-link">Locations</a>
-            <!-- <a href="#" class="footer-link">Franchise</a> -->
             <a href="order.html" class="footer-link highlight">Order Now</a>
           </div>
         </div>
@@ -221,7 +186,20 @@
 
   <!-- Scripts -->
   <script src="js/navigation.js"></script>
-  <script type="module" src="js/load-sanity-content.js"></script>
+
+  <!-- Mobi2Go Embed Script -->
+  <script>
+    document.getElementsByTagName('head')[0].appendChild(function(s){
+      var d=document,m2g=d.createElement('script'),l=function(){Mobi2Go.load(s.container,s.ready);},jq=window.jQuery&&+window.jQuery.fn.jquery.replace(/^\d+\./,'$1').replace(/^\d+\.(\d+).*$/,'$1')>=7,qs=window.location.search.substring(1),re=/=(.*?)(?:;|$)/,c=d.cookie.match('MOBI2GO_SESSIONID'+re),w=window.innerWidth;
+      m2g.src='https://www.mobi2go.com/store/embed/sarpinos.js?'+qs+(jq?'&no_jquery=1':'')+(c?'&s='+c[1]:'')+('&device_wid='+w);
+      if(m2g.onload!==undefined)m2g.onload=l;else m2g.onreadystatechange=function(){if(m2g.readyState!=='loaded'&&m2g.readyState!=='complete')return;m2g.onreadystatechange=null;l();};
+      window.Mobi2Go_est = +(new Date);
+      return m2g;
+    }({
+      container: 'Mobi2Go-Container', // ID of the element to inject UI into
+      ready: function() {} // Callback to fire when app is ready
+    }));
+  </script>
 
 </body>
 </html>
