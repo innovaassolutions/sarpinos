@@ -46,6 +46,15 @@ export default defineType({
       description: 'Optional phone number for this location',
     }),
     defineField({
+      name: 'mapIcon',
+      title: 'Map Icon',
+      type: 'image',
+      description: 'Screenshot of the location on a map',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'order',
       title: 'Display Order',
       type: 'number',

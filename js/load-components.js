@@ -50,12 +50,15 @@
 
   // Initialize navigation functionality (mobile menu toggle)
   function initializeNavigation() {
-    // This function will be called after nav is loaded
-    // The navigation.js will handle the menu toggle
-    // We just need to ensure it's triggered after the DOM is ready
-    if (typeof window.initNavigation === 'function') {
-      window.initNavigation();
-    }
+    // Wait a moment for the HTML to be fully inserted into DOM
+    setTimeout(() => {
+      if (typeof window.initNavigation === 'function') {
+        window.initNavigation();
+        console.log('✅ Navigation initialized');
+      } else {
+        console.warn('⚠️ window.initNavigation not found');
+      }
+    }, 50);
   }
 
   // Load components when DOM is ready

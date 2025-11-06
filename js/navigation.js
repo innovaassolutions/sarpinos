@@ -6,11 +6,15 @@
 (function() {
   'use strict';
 
+  // Expose init function globally for component loader
+  window.initNavigation = init;
+
   // Wait for DOM to be fully loaded
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
-    init();
+    // Delay init to allow components to load
+    setTimeout(init, 100);
   }
 
   function init() {
@@ -21,7 +25,7 @@
     const body = document.body;
 
     if (!menuToggle || !navMobile || !navOverlay) {
-      console.error('Navigation elements not found');
+      console.warn('Navigation elements not found, will retry when components load');
       return;
     }
 
