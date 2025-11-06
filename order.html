@@ -20,12 +20,17 @@
       margin-top: 100px;
       min-height: calc(100vh - 100px);
       padding: var(--spacing-md);
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
 
     #Mobi2Go-Storefront {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
       min-height: 800px;
+      overflow-x: hidden;
     }
 
     /* Loading state */
@@ -33,6 +38,19 @@
       text-align: center;
       padding: var(--spacing-xl);
       color: var(--gray-dark);
+    }
+
+    /* Mobile responsive fixes */
+    @media (max-width: 768px) {
+      .order-container {
+        padding: var(--spacing-sm);
+      }
+
+      #Mobi2Go-Storefront {
+        padding: 0;
+        margin: 0;
+        max-width: 100%;
+      }
     }
 
     .loading-message h2 {
