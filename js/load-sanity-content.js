@@ -121,24 +121,13 @@ async function loadSiteSettings() {
 
     if (!settings) return
 
-    // Wait for components to load before updating logo
-    const updateLogo = () => {
-      const logoImages = document.querySelectorAll('.logo-image')
-      if (settings.logo && logoImages.length > 0) {
-        const logoUrl = urlFor(settings.logo).width(400).url()
-        logoImages.forEach(img => {
-          img.src = logoUrl
-        })
-      }
-    }
-
-    // Check if components are already loaded
+    // Update logo in header
     const logoImages = document.querySelectorAll('.logo-image')
-    if (logoImages.length > 0) {
-      updateLogo()
-    } else {
-      // Wait for components to load
-      window.addEventListener('componentsLoaded', updateLogo, { once: true })
+    if (settings.logo && logoImages.length > 0) {
+      const logoUrl = urlFor(settings.logo).width(400).url()
+      logoImages.forEach(img => {
+        img.src = logoUrl
+      })
     }
 
     console.log('✅ Site settings loaded from Sanity')

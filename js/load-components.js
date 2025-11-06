@@ -8,7 +8,7 @@
 
   // Load navigation component
   function loadNavigation() {
-    return fetch('components/nav.html')
+    fetch('components/nav.html')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load navigation');
@@ -19,7 +19,6 @@
         const navContainer = document.getElementById('nav-container');
         if (navContainer) {
           navContainer.innerHTML = html;
-          console.log('✅ Navigation loaded');
           // Re-initialize navigation JavaScript after loading
           initializeNavigation();
         }
@@ -31,7 +30,7 @@
 
   // Load footer component
   function loadFooter() {
-    return fetch('components/footer.html')
+    fetch('components/footer.html')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to load footer');
@@ -42,7 +41,6 @@
         const footerContainer = document.getElementById('footer-container');
         if (footerContainer) {
           footerContainer.innerHTML = html;
-          console.log('✅ Footer loaded');
         }
       })
       .catch(error => {
@@ -63,23 +61,15 @@
     }, 50);
   }
 
-  // Load all components and dispatch event when done
-  async function loadAllComponents() {
-    try {
-      await Promise.all([loadNavigation(), loadFooter()]);
-      console.log('✅ All components loaded');
-      // Dispatch custom event to signal components are ready
-      window.dispatchEvent(new Event('componentsLoaded'));
-    } catch (error) {
-      console.error('Error loading components:', error);
-    }
-  }
-
   // Load components when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadAllComponents);
+    document.addEventListener('DOMContentLoaded', function() {
+      loadNavigation();
+      loadFooter();
+    });
   } else {
     // DOM already loaded
-    loadAllComponents();
+    loadNavigation();
+    loadFooter();
   }
 })();
