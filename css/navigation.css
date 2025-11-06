@@ -39,6 +39,11 @@
 .logo-image {
   height: 50px;
   width: auto;
+  object-fit: cover;
+  object-position: center;
+  /* Crop the white border by scaling and positioning */
+  transform: scale(1.15);
+  transform-origin: center;
 }
 
 .phone-number {
@@ -211,6 +216,7 @@
 @media (min-width: 640px) {
   .logo-image {
     height: 60px;
+    transform: scale(1.15);
   }
 
   .phone-number {
@@ -235,6 +241,7 @@
 
   .logo-image {
     height: 70px;
+    transform: scale(1.15);
   }
 
   .phone-number {

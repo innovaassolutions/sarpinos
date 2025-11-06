@@ -1,0 +1,30 @@
+{
+  "name": "sarpinos",
+  "version": "1.0.0",
+  "description": "A modern, responsive static website for Sarpino's Pizza Singapore featuring promotional content, brand story, and location information.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innovaassolutions/sarpinos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/innovaassolutions/sarpinos/issues"
+  },
+  "homepage": "https://github.com/innovaassolutions/sarpinos#readme",
+  "dependencies": {
+    "@sanity/client": "^7.12.1",
+    "@sanity/image-url": "^1.2.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.12"
+  }
+}

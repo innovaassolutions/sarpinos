@@ -17,6 +17,9 @@ Thumbs.db
 # Node modules (if using npm in future)
 node_modules/
 
+# Build output
+dist/
+
 # Logs
 *.log
 npm-debug.log*
@@ -24,3 +27,6 @@ npm-debug.log*
 # Environment variables
 .env
 .env.local
+
+# Package lock files
+package-lock.json
