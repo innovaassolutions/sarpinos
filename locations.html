@@ -40,79 +40,33 @@
       text-transform: uppercase;
     }
 
-    /* Accordion Styles */
-    .accordion {
+    /* Location Sections */
+    .locations-container {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-md);
+      gap: var(--spacing-lg);
     }
 
-    .accordion-item {
-      background-color: var(--gray-light);
+    .location-section {
+      background-color: var(--white);
       border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all var(--transition-medium);
-    }
-
-    .accordion-item:hover {
+      padding: 2rem;
       box-shadow: var(--shadow-md);
     }
 
-    .accordion-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem;
-      cursor: pointer;
-      background-color: var(--white);
-      transition: background-color var(--transition-fast);
-    }
-
-    .accordion-header:hover {
-      background-color: var(--gray-light);
-    }
-
-    .accordion-title {
+    .section-title-header {
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--tomato-red);
       text-transform: uppercase;
       letter-spacing: 1px;
+      margin-bottom: 1.5rem;
     }
 
-    .accordion-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius-full);
-      background-color: var(--basil-green);
+    .section-body {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 1.5rem;
-      font-weight: 700;
-      transition: all var(--transition-medium);
-    }
-
-    .accordion-item.active .accordion-icon {
-      transform: rotate(45deg);
-      background-color: var(--tomato-red);
-    }
-
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height var(--transition-slow);
-    }
-
-    .accordion-item.active .accordion-content {
-      max-height: 2000px;
-    }
-
-    .accordion-body {
-      padding: 0 1.5rem 1.5rem;
-      background-color: var(--white);
+      flex-direction: column;
+      gap: var(--spacing-md);
     }
 
     .location-item {
@@ -130,10 +84,34 @@
       margin-bottom: 0.25rem;
     }
 
+    .location-address-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+
     .location-address {
       color: var(--gray-dark);
       font-size: 0.875rem;
-      margin-bottom: 0.25rem;
+      flex: 1;
+    }
+
+    .map-icon-link {
+      flex-shrink: 0;
+      transition: transform var(--transition-fast);
+    }
+
+    .map-icon-link:hover {
+      transform: scale(1.1);
+    }
+
+    .map-icon {
+      width: 160px;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-sm);
     }
 
     .location-phone {
@@ -150,7 +128,7 @@
         font-size: 4rem;
       }
 
-      .accordion-title {
+      .section-title-header {
         font-size: 1.75rem;
       }
     }
@@ -177,46 +155,49 @@
     <section class="locations-content">
       <h1 class="locations-title">Locations</h1>
 
-      <!-- Accordion -->
-      <div class="accordion">
+      <!-- Locations Container -->
+      <div class="locations-container">
 
         <!-- East, North East Region -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <h2 class="accordion-title">East, North East</h2>
-            <div class="accordion-icon">+</div>
-          </div>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <div class="location-item">
-                <div class="location-name">Saripino's Pizza Tampines</div>
+        <div class="location-section">
+          <h2 class="section-title-header">East, North East</h2>
+          <div class="section-body">
+            <div class="location-item">
+              <div class="location-name">Saripino's Pizza Tampines</div>
+              <div class="location-address-row">
                 <div class="location-address">Safra Tampines Clubhouse 1A Tampines Street 92 Singapore 528882</div>
-                <div class="operating-hours">Open 10am - 10pm daily</div>
+                <a href="https://maps.google.com/?q=Safra+Tampines+Clubhouse+1A+Tampines+Street+92+Singapore+528882" target="_blank" rel="noopener noreferrer" class="map-icon-link">
+                  <img src="images/SAFRAMapIcon.png" alt="View on map" class="map-icon">
+                </a>
               </div>
-              <div class="location-item">
-                <div class="location-name">Saripino's Pizza Eunos</div>
+              <div class="operating-hours">Open 10am - 10pm daily</div>
+            </div>
+            <div class="location-item">
+              <div class="location-name">Saripino's Pizza Eunos</div>
+              <div class="location-address-row">
                 <div class="location-address">1A Eunos Crescent #01-2477 Singapore 401001</div>
-                <div class="operating-hours">Open 10am - 10pm daily</div>
+                <a href="https://maps.google.com/?q=1A+Eunos+Crescent+%2301-2477+Singapore+401001" target="_blank" rel="noopener noreferrer" class="map-icon-link">
+                  <img src="images/EunosMapIcon.png" alt="View on map" class="map-icon">
+                </a>
               </div>
-              </div>
+              <div class="operating-hours">Open 10am - 10pm daily</div>
             </div>
           </div>
         </div>
 
         <!-- Central Areas Region -->
-        <div class="accordion-item">
-          <div class="accordion-header">
-            <h2 class="accordion-title">Central Areas</h2>
-            <div class="accordion-icon">+</div>
-          </div>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <div class="location-item">
-                <div class="location-name">Shell @ DUNEARN</div>
+        <div class="location-section">
+          <h2 class="section-title-header">Central Areas</h2>
+          <div class="section-body">
+            <div class="location-item">
+              <div class="location-name">Shell @ DUNEARN</div>
+              <div class="location-address-row">
                 <div class="location-address">314 Dunearn Rd, Singapore 299551</div>
-                <div class="operating-hours">Open 10am - 10pm daily</div>
+                <a href="https://maps.google.com/?q=314+Dunearn+Rd+Singapore+299551" target="_blank" rel="noopener noreferrer" class="map-icon-link">
+                  <img src="images/DunearnMapIcon.png" alt="View on map" class="map-icon">
+                </a>
               </div>
-              </div>
+              <div class="operating-hours">Open 10am - 10pm daily</div>
             </div>
           </div>
         </div>
@@ -231,7 +212,6 @@
   <!-- Scripts -->
   <script src="js/load-components.js"></script>
   <script src="js/navigation.js"></script>
-  <script src="js/accordion-init.js"></script>
   <script type="module" src="js/load-sanity-content.js"></script>
   <script type="module" src="js/load-locations.js"></script>
 

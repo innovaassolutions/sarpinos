@@ -52,12 +52,12 @@ button {
    ========================================== */
 
 :root {
-  /* Brand Colors */
-  --basil-green: #4A8B5C;
-  --tomato-red: #E63946;
-  --pesto-green: #2D5A3D;
-  --salad-green: #A4D65E;
-  --bbq-red: #8B3A3A;
+  /* Brand Colors - Official Sarpino's Brand Guidelines */
+  --basil-green: #008345;  /* PMS 348C - Basil Green */
+  --tomato-red: #E90000;   /* PMS 2347C - Tomato Red */
+  --pesto-green: #006341;  /* PMS 3425C - Pesto Green */
+  --salad-green: #95D600;  /* PMS 375C - Salad Green */
+  --bbq-red: #98252B;      /* PMS 7622C - BBQ Red */
 
   /* Neutral Colors */
   --white: #FFFFFF;
@@ -360,14 +360,36 @@ p {
 .promo-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
   transition: all var(--transition-medium);
   cursor: pointer;
 }
 
+/* Alternating glows using official Sarpino's brand colors: red, green, green, red */
+.promo-card:nth-child(4n+1) {
+  box-shadow: 0 0 30px rgba(233, 0, 0, 0.4), 0 0 60px rgba(233, 0, 0, 0.2);
+}
+
+.promo-card:nth-child(4n+2),
+.promo-card:nth-child(4n+3) {
+  box-shadow: 0 0 30px rgba(0, 131, 69, 0.4), 0 0 60px rgba(0, 131, 69, 0.2);
+}
+
+.promo-card:nth-child(4n+4) {
+  box-shadow: 0 0 30px rgba(233, 0, 0, 0.4), 0 0 60px rgba(233, 0, 0, 0.2);
+}
+
 .promo-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+}
+
+.promo-card:nth-child(4n+1):hover,
+.promo-card:nth-child(4n+4):hover {
+  box-shadow: 0 0 40px rgba(233, 0, 0, 0.6), 0 0 80px rgba(233, 0, 0, 0.3), var(--shadow-lg);
+}
+
+.promo-card:nth-child(4n+2):hover,
+.promo-card:nth-child(4n+3):hover {
+  box-shadow: 0 0 40px rgba(0, 131, 69, 0.6), 0 0 80px rgba(0, 131, 69, 0.3), var(--shadow-lg);
 }
 
 .promo-image {
