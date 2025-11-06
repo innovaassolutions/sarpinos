@@ -11,6 +11,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './index.html',
+        order: './order.html',
         locations: './locations.html',
         'our-story': './our-story.html',
         'terms-of-use': './terms-of-use.html',
