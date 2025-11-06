@@ -22,7 +22,7 @@
       padding: var(--spacing-md);
     }
 
-    #Mobi2Go-Container {
+    #Mobi2Go-Storefront {
       max-width: 1200px;
       margin: 0 auto;
       min-height: 800px;
@@ -93,7 +93,7 @@
   <!-- Main Content -->
   <main class="order-container">
     <!-- Mobi2Go Container -->
-    <div id="Mobi2Go-Container">
+    <div id="Mobi2Go-Storefront">
       <div class="loading-message">
         <h2>Loading Menu...</h2>
         <p>Please wait while we load our delicious menu for you.</p>
@@ -190,13 +190,13 @@
   <!-- Mobi2Go Embed Script -->
   <script>
     document.getElementsByTagName('head')[0].appendChild(function(s){
-      var d=document,m2g=d.createElement('script'),l=function(){Mobi2Go.load(s.container,s.ready);},jq=window.jQuery&&+window.jQuery.fn.jquery.replace(/^\d+\./,'$1').replace(/^\d+\.(\d+).*$/,'$1')>=7,qs=window.location.search.substring(1),re=/=(.*?)(?:;|$)/,c=d.cookie.match('MOBI2GO_SESSIONID'+re),w=window.innerWidth;
-      m2g.src='https://www.mobi2go.com/store/embed/sarpinos.js?'+qs+(jq?'&no_jquery=1':'')+(c?'&s='+c[1]:'')+('&device_wid='+w);
-      if(m2g.onload!==undefined)m2g.onload=l;else m2g.onreadystatechange=function(){if(m2g.readyState!=='loaded'&&m2g.readyState!=='complete')return;m2g.onreadystatechange=null;l();};
+      var d=document,m2g=d.createElement('script'),l=function(){Mobi2Go.load(s.container,s.ready);},jq=window.jQuery&&+window.jQuery.fn.jquery.replace(/^(\d+).*$/,'$1')===1&&+window.jQuery.fn.jquery.replace(/^\d+\.(\d+).*$/,'$1')>=7,qs=window.location.search.substring(1),re='=(.*?)(?:;|$)',c=d.cookie.match('MOBI2GO_SESSIONID'+re),w=window.innerWidth;
+      m2g.src='https://www.mobi2go.com/store/embed/sarpinos.js?'+qs+(jq?'&no_jquery':'')+(c?'&s='+c[1]:'')+'&device_width='+w;
+      if(m2g.onload!==undefined)m2g.onload=l;else m2g.onreadystatechange=function(){if(m2g.readyState!=='loaded'&&m2g.readyState!=='complete')return;m2g.onreadystatechange=null;l();}
       window.Mobi2Go_est = +(new Date);
       return m2g;
     }({
-      container: 'Mobi2Go-Container', // ID of the element to inject UI into
+      container: 'Mobi2Go-Storefront', // Replace with ID of the element to inject UI into
       ready: function() {} // Callback to fire when app is ready
     }));
   </script>
