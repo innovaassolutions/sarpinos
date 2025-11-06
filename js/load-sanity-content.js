@@ -121,13 +121,24 @@ async function loadSiteSettings() {
 
     if (!settings) return
 
-    // Update logo in header
+    // Wait for components to load before updating logo
+    const updateLogo = () => {
+      const logoImages = document.querySelectorAll('.logo-image')
+      if (settings.logo && logoImages.length > 0) {
+        const logoUrl = urlFor(settings.logo).width(400).url()
+        logoImages.forEach(img => {
+          img.src = logoUrl
+        })
+      }
+    }
+
+    // Check if components are already loaded
     const logoImages = document.querySelectorAll('.logo-image')
-    if (settings.logo && logoImages.length > 0) {
-      const logoUrl = urlFor(settings.logo).width(400).url()
-      logoImages.forEach(img => {
-        img.src = logoUrl
-      })
+    if (logoImages.length > 0) {
+      updateLogo()
+    } else {
+      // Wait for components to load
+      window.addEventListener('componentsLoaded', updateLogo, { once: true })
     }
 
     console.log('✅ Site settings loaded from Sanity')
