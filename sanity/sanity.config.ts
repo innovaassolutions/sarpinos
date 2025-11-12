@@ -6,7 +6,7 @@ import {PreviewAction} from './actions/PreviewAction'
 
 export default defineConfig({
   name: 'default',
-  title: 'Sarpinos Pizza Singapore',
+  title: 'Sarpino\'s Pizza - Content Manager',
 
   projectId: 'o728fifb',
   dataset: 'production',
@@ -15,39 +15,54 @@ export default defineConfig({
     structureTool({
       structure: (S) =>
         S.list()
-          .title('Content')
+          .title('✏️ Edit Your Website')
           .items([
-            // Site Settings (Singleton)
+            // MAIN PAGES
             S.listItem()
-              .title('Site Settings')
+              .title('📄 Main Pages')
+              .child(
+                S.list()
+                  .title('Main Pages')
+                  .items([
+                    S.listItem()
+                      .title('🏠 Homepage Banner')
+                      .child(
+                        S.document()
+                          .schemaType('heroContent')
+                          .documentId('heroContent')
+                      ),
+                    S.listItem()
+                      .title('ℹ️ About Us Page')
+                      .child(
+                        S.document()
+                          .schemaType('aboutPage')
+                          .documentId('aboutPage')
+                      ),
+                  ])
+              ),
+            S.divider(),
+            // CONTENT SECTIONS
+            S.listItem()
+              .title('🎯 Promotions & Offers')
+              .schemaType('promotion')
+              .child(S.documentTypeList('promotion').title('🎯 Current Promotions')),
+            S.listItem()
+              .title('📍 Restaurant Locations')
+              .schemaType('location')
+              .child(S.documentTypeList('location').title('📍 All Locations')),
+            S.listItem()
+              .title('⭐ Features & Highlights')
+              .schemaType('feature')
+              .child(S.documentTypeList('feature').title('⭐ Features')),
+            S.divider(),
+            // SETTINGS
+            S.listItem()
+              .title('⚙️ Website Settings')
               .child(
                 S.document()
                   .schemaType('siteSettings')
                   .documentId('siteSettings')
               ),
-            S.divider(),
-            // Hero Content (Singleton)
-            S.listItem()
-              .title('Hero Content')
-              .child(
-                S.document()
-                  .schemaType('heroContent')
-                  .documentId('heroContent')
-              ),
-            S.divider(),
-            // Regular document lists
-            S.listItem()
-              .title('Promotions')
-              .schemaType('promotion')
-              .child(S.documentTypeList('promotion').title('Promotions')),
-            S.listItem()
-              .title('Locations')
-              .schemaType('location')
-              .child(S.documentTypeList('location').title('Locations')),
-            S.listItem()
-              .title('Features')
-              .schemaType('feature')
-              .child(S.documentTypeList('feature').title('Features')),
           ]),
     }),
     visionTool(),
@@ -60,7 +75,7 @@ export default defineConfig({
   document: {
     productionUrl: async (prev, context) => {
       // Use your local dev server or production URL
-      const baseUrl = 'http://localhost:5173'
+      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
       // Return the appropriate preview URL based on document type
       const {document} = context
@@ -68,7 +83,10 @@ export default defineConfig({
         return `${baseUrl}/`
       }
       if (document._type === 'location') {
-        return `${baseUrl}/locations.html`
+        return `${baseUrl}/locations`
+      }
+      if (document._type === 'aboutPage') {
+        return `${baseUrl}/about`
       }
       return `${baseUrl}/`
     },
