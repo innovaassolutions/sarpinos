@@ -68,7 +68,7 @@ export default defineConfig({
     }),
     presentationTool({
       previewUrl: {
-        origin: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+        origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000',
         draftMode: {
           enable: '/api/draft',
         },
@@ -84,7 +84,7 @@ export default defineConfig({
   document: {
     productionUrl: async (_prev, context) => {
       // Use your local dev server or production URL
-      const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+      const baseUrl = process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000'
 
       // Return the appropriate preview URL based on document type
       const {document} = context

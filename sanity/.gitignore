@@ -27,3 +27,7 @@
 
 # Dotenv and similar local-only files
 *.local
+.env
+
+# But allow .env.production to be committed
+!.env.production
