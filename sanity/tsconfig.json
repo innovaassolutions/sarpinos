@@ -6,8 +6,11 @@
     "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "Preserve",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "moduleDetection": "force",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true
